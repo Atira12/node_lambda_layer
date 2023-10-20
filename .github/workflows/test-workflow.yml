@@ -1,0 +1,14 @@
+on:
+  pull_request:
+
+jobs:
+  test-build-example:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Download dependencies"
+        run: npm ci
+      - name: "Run Tests"
+        run: npm run test
+      - name: "Build"
+        run: ./scripts/build
